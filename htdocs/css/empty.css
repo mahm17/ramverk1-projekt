@@ -3,3 +3,42 @@
  *
  * To use for showing how the website looks when there is no style at all.
  */
+
+h1, h2, h3 {
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.flash {
+    width: 100%;
+    z-index: 0;
+    height: 500px;
+}
+
+input[type=text],
+input[type=datetime],
+input[type=password],
+textarea {
+    width: 400px;
+}
+
+textarea {
+    height: 200px;
+}
+
+label {
+    font-size: medium;
+}
+
+input,
+textarea,
+legend {
+    font-size: large;
+}
+
+.questionheader {
+    padding-bottom: 0.3em;
+}

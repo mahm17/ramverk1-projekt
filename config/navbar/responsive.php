@@ -16,48 +16,24 @@ return [
             "title" => "Första sidan, börja här.",
         ],
         [
-            "text" => "Redovisning",
-            "url" => "redovisning",
-            "title" => "Redovisningstexter från kursmomenten.",
-            "submenu" => [
-                "items" => [
-                    [
-                        "text" => "Kmom01",
-                        "url" => "redovisning/kmom01",
-                        "title" => "Redovisning för kmom01.",
-                    ],
-                    [
-                        "text" => "Kmom02",
-                        "url" => "redovisning/kmom02",
-                        "title" => "Redovisning för kmom02.",
-                    ],
-                    [
-                        "text" => "Kmom03",
-                        "url" => "redovisning/kmom03",
-                        "title" => "Redovisning för kmom03.",
-                    ],
-                ],
-            ],
-        ],
-        [
             "text" => "Om",
             "url" => "om",
             "title" => "Om denna webbplats.",
         ],
         [
-            "text" => "Styleväljare",
-            "url" => "style",
-            "title" => "Välj stylesheet.",
+            "text" => "Forum",
+            "url" => "forum",
+            "title" => "Forum",
         ],
         [
-            "text" => "Verktyg",
-            "url" => "verktyg",
-            "title" => "Verktyg och möjligheter för utveckling.",
+            "text" => "Registrera dig",
+            "url" => "login/create",
+            "title" => "Registrera dig",
         ],
         [
-            "text" => "IP-Validering",
-            "url" => "ip",
-            "title" => "Validera IP-addreser",
-        ],
+            "text" => "Logga in",
+            "url" => "login",
+            "title" => "Logga in",
+        ]
     ],
 ];
