@@ -27,7 +27,12 @@ endif;
     <header>
         <h1><?= $item->title ?></h1>
     </header>
-    <?= $filter->doFilter($item->content, "markdown") ?>
+    <?= $filter->doFilter($item->content, "markdown"); ?>
+    <?php foreach ($users as $info) : ?>
+        <p>
+            Posted by: <a href="../../profile"><?= $info->username ?></a>
+        </p>
+    <?php endforeach; ?>
     <?php if ($session->has("login")) : ?>
         <p>
             <a href="../answer/<?= $item->id ?>">Answer this post</a>
@@ -37,7 +42,7 @@ endif;
     <?php endif; ?>
     <?php foreach ($answers as $answer) : ?>
         <h2>Answers:</h2>
-        <?= $answer->content ?>
+        <?= $filter->doFilter($answer->content, "markdown"); ?>
     <?php endforeach; ?>
 </article>
 <?php endforeach; ?>

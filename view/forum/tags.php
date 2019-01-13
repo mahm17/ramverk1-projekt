@@ -27,7 +27,7 @@ endif;
         <?php $tags = explode(", ", $item->tag); ?>
         <section>
             <?php foreach ($tags as $tag) : ?>
-                <a href="tags/tag/<?= $item->tag ?>"><?= $tag ?></a>
+                <a href="tags/tag/<?= $tag ?>"><?= $tag ?></a>
             <?php endforeach; ?>
         </section>
     <?php endforeach; ?>

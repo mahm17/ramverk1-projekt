@@ -21,6 +21,7 @@ a {
 input[type=text],
 input[type=datetime],
 input[type=password],
+input[type=email],
 textarea {
     width: 400px;
 }

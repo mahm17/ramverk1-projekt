@@ -36,7 +36,7 @@ return [
         ],
         [
             "text" => "About",
-            "url" => "om",
+            "url" => "about",
             "title" => "About this webpage",
         ],
         [

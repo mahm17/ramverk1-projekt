@@ -25,7 +25,7 @@ class CreateUserForm extends FormModel
                 "legend" => "Create user",
             ],
             [
-                "acronym" => [
+                "username" => [
                     "type"        => "text",
                 ],
 
@@ -38,6 +38,10 @@ class CreateUserForm extends FormModel
                     "validation" => [
                         "match" => "password"
                     ],
+                ],
+
+                "email" => [
+                    "type"        => "email",
                 ],
 
                 "submit" => [
@@ -60,9 +64,10 @@ class CreateUserForm extends FormModel
      public function callbackSubmit()
     {
         // Get values from the submitted form
-        $acronym       = $this->form->value("acronym");
+        $username      = $this->form->value("username");
         $password      = $this->form->value("password");
         $passwordAgain = $this->form->value("password-again");
+        $email = $this->form->value("email");
 
         // Check password matches
         if ($password !== $passwordAgain ) {
@@ -80,7 +85,8 @@ class CreateUserForm extends FormModel
         //    ->fetch();
         $user = new User();
         $user->setDb($this->di->get("dbqb"));
-        $user->acronym = $acronym;
+        $user->username = $username;
+        $user->email = $email;
         $user->setPassword($password);
         $user->save();
 

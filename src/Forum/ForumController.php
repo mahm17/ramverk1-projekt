@@ -49,12 +49,17 @@ class ForumController implements ContainerInjectableInterface
         $page = $this->di->get("page");
         $forum = new Forum();
         $answer = new Answer();
+        $user = new \Anax\User\User();
         $forum->setDb($this->di->get("dbqb"));
         $answer->setDb($this->di->get("dbqb"));
+        $user->setDb($this->di->get("dbqb"));
+        $session = $this->di->get("session");
+        $login = $session->get("login");
 
         $page->add("forum/specific", [
             "content" => $forum->findAllWhere("id = ?", $id),
             "answers" => $answer->findAllWhere("question_id = ?", $id),
+            "users" => $user->findAllWhere("id = ?", $login),
         ]);
 
         return $page->render([

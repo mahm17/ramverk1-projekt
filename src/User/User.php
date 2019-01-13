@@ -16,7 +16,7 @@ class User extends ActiveRecordModel
     * @var integer $id primary key auto incremented.
     */
     public $id;
-    public $acronym;
+    public $username;
     public $password;
     public $created;
     public $updated;
@@ -47,9 +47,9 @@ class User extends ActiveRecordModel
     *
     * @return boolean true if acronym and password matches, else false.
     */
-    public function verifyPassword($acronym, $password)
+    public function verifyPassword($username, $password)
     {
-        $this->find("acronym", $acronym);
+        $this->find("username", $username);
         return password_verify($password, $this->password);
     }
 }

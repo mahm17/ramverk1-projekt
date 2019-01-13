@@ -8,7 +8,11 @@ namespace Anax\View;
 // Show incoming variables and view helper functions
 //echo showEnvironment(get_defined_vars(), get_defined_functions());
 $items = isset($items) ? $items : null;
+$size = 90;
+$grav_url = "https://www.gravatar.com/avatar/";
 var_dump($answers);
+
+
 // $session = $this->di->get("session");
 
 ?>
@@ -16,7 +20,8 @@ var_dump($answers);
 <!DOCTYPE html>
 <h1>Your profile</h1>
 <?php foreach ($items as $item) : ?>
-    <p>Your are logged in as <?= $item->acronym ?>.</p>
+    <img src="<?php echo $grav_url . md5(strtolower(trim($item->email))) . "?s=" . $size; ?>" alt="" />
+    <p>Your are logged in as <?= $item->username ?>.</p>
 <?php endforeach; ?>
 <?php if (empty($posts)) : ?>
     <p>You have not made any posts yet.</p>
@@ -33,6 +38,6 @@ var_dump($answers);
 <?php else : ?>
     <h3>Answers you have posted: </h3>
     <?php foreach ($answers as $answer) : ?>
-        <a href="forum/question/<?= $answer->id ?>"><?= $answer->content ?></a>
+        <a href="forum/question/<?= $answer->question_id ?>"><?= $answer->content ?></a>
     <?php endforeach; ?>
 <?php endif; ?>

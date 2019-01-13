@@ -23,7 +23,7 @@ class UserLoginForm extends FormModel
             $this->form->create(
             [
                 "id" => __CLASS__,
-                "legend" => "Logga in"
+                "legend" => "Login"
             ],
             [
                 "username" => [
@@ -57,7 +57,7 @@ class UserLoginForm extends FormModel
     public function callbackSubmit()
     {
         // Get values from the submitted form
-        $acronym       = $this->form->value("username");
+        $username       = $this->form->value("username");
         $password      = $this->form->value("password");
 
         // Try to login
@@ -78,7 +78,7 @@ class UserLoginForm extends FormModel
 
         $user = new User();
         $user->setDb($this->di->get("dbqb"));
-        $res = $user->verifyPassword($acronym, $password);
+        $res = $user->verifyPassword($username, $password);
         $session = $this->di->get("session");
         $session->set("login", $user->id);
 
@@ -87,7 +87,7 @@ class UserLoginForm extends FormModel
            $this->form->addOutput("User or password did not match.");
            return false;
         }
-        $this->form->addOutput("User " . $user->acronym . " logged in.");
+        $this->form->addOutput("User " . $user->username . " logged in.");
         return true;
     }
 
