@@ -11,6 +11,7 @@ namespace Anax\View;
 $items = isset($items) ? $items : null;
 // var_dump($items);
 // $session = $this->di->get("session");
+$tags = [];
 ?>
 
 <?php if (!$items) : ?>
@@ -24,7 +25,7 @@ endif;
         <h1>All tags</h1>
     </header>
     <?php foreach ($items as $item) : ?>
-        <?php $tags = explode(", ", $item->tag); ?>
+        <?php $tags = explode(", ", $item->tag);?>
         <section>
             <?php foreach ($tags as $tag) : ?>
                 <a href="tags/tag/<?= $tag ?>"><?= $tag ?></a>

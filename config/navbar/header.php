@@ -43,6 +43,11 @@ return [
             "text" => "Profile",
             "url" => "profile",
             "title" => "Your profile",
+        ],
+        [
+            "text" => "All users",
+            "url" => "profile/all",
+            "title" => "All users",
         ]
     ],
 ];

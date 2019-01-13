@@ -28,6 +28,7 @@ endif;
         <h1><?= $item->title ?></h1>
     </header>
     <?= $filter->doFilter($item->content, "markdown"); ?>
+    <p>Tags: <?= $item->tag ?></p>
     <?php foreach ($users as $info) : ?>
         <p>
             Posted by: <a href="../../profile"><?= $info->username ?></a>

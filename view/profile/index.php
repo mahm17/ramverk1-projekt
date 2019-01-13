@@ -10,8 +10,6 @@ namespace Anax\View;
 $items = isset($items) ? $items : null;
 $size = 90;
 $grav_url = "https://www.gravatar.com/avatar/";
-var_dump($answers);
-
 
 // $session = $this->di->get("session");
 
@@ -22,6 +20,7 @@ var_dump($answers);
 <?php foreach ($items as $item) : ?>
     <img src="<?php echo $grav_url . md5(strtolower(trim($item->email))) . "?s=" . $size; ?>" alt="" />
     <p>Your are logged in as <?= $item->username ?>.</p>
+    <a href="profile/edit/<?= $item->id ?>">Edit user</a>
 <?php endforeach; ?>
 <?php if (empty($posts)) : ?>
     <p>You have not made any posts yet.</p>
