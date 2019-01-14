@@ -1,7 +1,7 @@
 <?php
 
-namespace AnaxView;
-var_dump($items);
+namespace Anax\View;
+
 ?>
 <h1>Welcome to Everything about Slopestyle!</h1>
 <p>Welcome to Everything about Slopestyle! On this page you will be able to find everything related to
