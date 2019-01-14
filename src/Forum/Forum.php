@@ -2,6 +2,7 @@
 namespace Anax\Forum;
 
 use Anax\DatabaseActiveRecord\ActiveRecordModel;
+use Anax\Database\Database;
 
 class Forum extends ActiveRecordModel
 {
@@ -19,4 +20,5 @@ class Forum extends ActiveRecordModel
     public $title;
     public $content;
     public $tag;
+
 }

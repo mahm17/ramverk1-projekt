@@ -35,7 +35,7 @@ class TagsController implements ContainerInjectableInterface
         $page = $this->di->get("page");
 
         $page->add("forum/specificTag", [
-            "items" => $forum->findAllWhere("tag = ?", $tag),
+            "items" => $forum->findWhere("tag = ?", $tag),
         ]);
 
         return $page->render([

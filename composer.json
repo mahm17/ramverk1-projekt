@@ -1,5 +1,5 @@
 {
-    "name" : "mahm/projekt",
+    "name" : "anax/projekt",
     "description": "Project for ramverk1 course.",
     "license": "MIT",
     "minimum-stability": "beta",
@@ -11,7 +11,7 @@
         "anax/anax-ramverk1-me": "^1.0.0",
         "anax/database-active-record": "^2.0",
         "anax/htmlform": "^2.0",
-        "mahm/projekt": "^1.0.0"
+        "mahm/projekt": "^2.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^7"

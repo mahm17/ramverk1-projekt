@@ -14,12 +14,15 @@ class HomeController implements ContainerInjectableInterface
     {
         $title = "Home page";
         $forum = new Forum();
+        $user = new \Anax\User\User();
         $forum->setDb($this->di->get("dbqb"));
+        $user->setDb($this->di->get("dbqb"));
 
         $page = $this->di->get("page");
 
         $page->add("home/index", [
             "items" => $forum->findAll(),
+            "users" => $user->findAll(),
         ]);
 
         return $page->render([

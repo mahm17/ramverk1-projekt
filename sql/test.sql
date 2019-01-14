@@ -52,7 +52,8 @@ CREATE TABLE Svar (
 INSERT INTO Forum (title, content, tag)
 VALUES
 	('Test title', 'Detta är ett test inlägg', 'test'),
-	('Viktig fråga', 'Detta är en mycket viktig fråga', 'fråga');
+	('Viktig fråga', 'Detta är en mycket viktig fråga', 'fråga'),
+    ('Viktig fråga hej', 'Detta är en mycket viktig fråga', 'fråga, två');
     
 INSERT INTO Svar (content, svar_id)
 VALUES
@@ -61,4 +62,5 @@ VALUES
 
 SELECT * FROM Forum;
 SELECT * FROM Svar WHERE svar_id = 1;
+SELECT * FROM Forum WHERE tag IN ('fråga');
 

@@ -25,11 +25,16 @@ endif;
         <h1>All tags</h1>
     </header>
     <?php foreach ($items as $item) : ?>
-        <?php $tags = explode(", ", $item->tag);?>
-        <section>
-            <?php foreach ($tags as $tag) : ?>
-                <a href="tags/tag/<?= $tag ?>"><?= $tag ?></a>
+        <?php array_push($tags, $item->tag); ?>
+    <?php endforeach; ?>
+    <?php foreach ($tags as $tag) : ?>
+        <?php $exploded = explode(", ", $tag); ?>
+        <?php if (!in_array($tag, $exploded)) : ?>
+            <?php foreach ($exploded as $piece) : ?>
+                <section>
+                    <a href="tags/tag/<?= $piece ?>"><?= $piece ?></a>
+                </section>
             <?php endforeach; ?>
-        </section>
+        <?php endif; ?>
     <?php endforeach; ?>
 </article>
