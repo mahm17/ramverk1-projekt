@@ -11,6 +11,7 @@ namespace Anax\View;
 $items = isset($items) ? $items : null;
 $session = $this->di->get("session");
 $filter = $this->di->get("textfilter");
+$tags = [];
 // var_dump($session);
 ?>
 <h1>Welcome to the forum</h1>
@@ -30,6 +31,7 @@ endif;
 ?>
 <article>
     <?php foreach ($items as $item) : ?>
+        <?php array_push($tags, $item->tag) ?>
         <section>
             <header class="questionheader">
                 <h2><a href="forum/question/<?= $item->id ?>"><?= $item->title ?></a></h2>
@@ -38,3 +40,6 @@ endif;
         </section>
     <?php endforeach; ?>
 </article>
+
+<?php var_dump(array_count_values($tags));; ?>
+<?php var_dump($tags); ?>
