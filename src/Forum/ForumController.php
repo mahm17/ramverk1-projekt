@@ -6,7 +6,8 @@ use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
 use Anax\Forum\HTMLForm\AnswerForm;
 use Anax\Forum\HTMLForm\CreatePostForm;
-
+use Anax\Forum\HTMLForm\CommentForm;
+use Anax\Forum\HTMLForm\CommentAnswerForm;
 
 class ForumController implements ContainerInjectableInterface
 {
@@ -49,10 +50,14 @@ class ForumController implements ContainerInjectableInterface
         $page = $this->di->get("page");
         $forum = new Forum();
         $answer = new Answer();
+        $comment = new Comment();
+        $anscomment = new AnswerComment();
         $user = new \Anax\User\User();
         $forum->setDb($this->di->get("dbqb"));
         $answer->setDb($this->di->get("dbqb"));
         $user->setDb($this->di->get("dbqb"));
+        $comment->setDb($this->di->get("dbqb"));
+        $anscomment->setDb($this->di->get("dbqb"));
         $session = $this->di->get("session");
         $login = $session->get("login");
 
@@ -60,6 +65,8 @@ class ForumController implements ContainerInjectableInterface
             "content" => $forum->findAllWhere("id = ?", $id),
             "answers" => $answer->findAllWhere("question_id = ?", $id),
             "users" => $user->findAllWhere("id = ?", $login),
+            "comments" => $comment->findAllWhere("question_id = ?", $id),
+            "anscomments" => $anscomment->findAll(),
         ]);
 
         return $page->render([
@@ -79,6 +86,36 @@ class ForumController implements ContainerInjectableInterface
 
         return $page->render([
             "title" => "Create a new answer",
+        ]);
+    }
+
+    public function commentAction(int $id) : object
+    {
+        $page = $this->di->get("page");
+        $form = new CommentForm($this->di, $id);
+        $form->check();
+
+        $page->add("anax/v2/article/default", [
+            "content" => $form->getHTML(),
+        ]);
+
+        return $page->render([
+            "title" => "Create a new comment",
+        ]);
+    }
+
+    public function anscommentAction(int $id) : object
+    {
+        $page = $this->di->get("page");
+        $form = new CommentAnswerForm($this->di, $id);
+        $form->check();
+
+        $page->add("anax/v2/article/default", [
+            "content" => $form->getHTML(),
+        ]);
+
+        return $page->render([
+            "title" => "Create a new comment",
         ]);
     }
 }

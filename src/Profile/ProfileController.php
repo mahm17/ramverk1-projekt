@@ -16,9 +16,13 @@ class ProfileController implements ContainerInjectableInterface
         $user = new \Anax\User\User();
         $forum = new \Anax\Forum\Forum();
         $answer = new \Anax\Forum\Answer();
+        $comments = new \Anax\Forum\Comment();
+        $anscomments = new \Anax\Forum\AnswerComment();
         $user->setDb($this->di->get("dbqb"));
         $forum->setDb($this->di->get("dbqb"));
         $answer->setDb($this->di->get("dbqb"));
+        $comments->setDb($this->di->get("dbqb"));
+        $anscomments->setDb($this->di->get("dbqb"));
         $session = $this->di->get("session");
         $loginId = $session->get("login");
 
@@ -28,6 +32,8 @@ class ProfileController implements ContainerInjectableInterface
             "items" => $user->findAllWhere("id = ?", $loginId),
             "posts" => $forum->findAllWhere("user = ?", $loginId),
             "answers" => $answer->findAllWhere("user = ?", $loginId),
+            "comments" => $comments->findAllWhere("user = ?", $loginId),
+            "anscomments" => $anscomments->findAllWhere("user = ?", $loginId),
         ]);
 
         return $page->render([
@@ -58,9 +64,14 @@ class ProfileController implements ContainerInjectableInterface
         $user = new \Anax\User\User();
         $forum = new \Anax\Forum\Forum();
         $answer = new \Anax\Forum\Answer();
+        $comments = new \Anax\Forum\Comment();
+        $anscomments = new \Anax\Forum\AnswerComment();
+
         $user->setDb($this->di->get("dbqb"));
         $forum->setDb($this->di->get("dbqb"));
         $answer->setDb($this->di->get("dbqb"));
+        $comments->setDb($this->di->get("dbqb"));
+        $anscomments->setDb($this->di->get("dbqb"));
 
         $page = $this->di->get("page");
 
@@ -68,6 +79,8 @@ class ProfileController implements ContainerInjectableInterface
             "users" => $user->findAllWhere("id = ?", $id),
             "questions" => $forum->findAllWhere("user = ?", $id),
             "answers" => $answer->findAllWhere("user = ?", $id),
+            "comments" => $comments->findAllWhere("user = ?", $id),
+            "anscomments" => $anscomments->findAllWhere("user = ?", $id),
         ]);
 
         return $page->render([

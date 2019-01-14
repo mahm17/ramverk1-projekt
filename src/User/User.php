@@ -20,8 +20,7 @@ class User extends ActiveRecordModel
     public $password;
     public $created;
     public $updated;
-    public $deleted;
-    public $active;
+    public $activity;
 
     /**
      * A database driven model.

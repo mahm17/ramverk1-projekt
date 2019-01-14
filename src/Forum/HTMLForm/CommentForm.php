@@ -6,11 +6,12 @@ use Anax\HTMLForm\FormModel;
 use Psr\Container\ContainerInterface;
 use Anax\Forum\Answer;
 use Anax\Forum\Forum;
+use Anax\Forum\Comment;
 
 /**
  * Example of FormModel implementation.
  */
-class AnswerForm extends FormModel
+class CommentForm extends FormModel
 {
     /**
      * Constructor injects with DI container and the id to update.
@@ -27,12 +28,12 @@ class AnswerForm extends FormModel
         $this->form->create(
             [
                 "id" => __CLASS__,
-                "legend" => "Answer post nr: $forum->id",
+                "legend" => "Post a comment",
             ],
             [
-                "answer" => [
+                "comment" => [
                     "type" => "textarea",
-                    "placeholder" => "Write the answer in markdown to change how it looks.",
+                    "placeholder" => "Write the comment in markdown to change how it looks.",
                 ],
 
                 "question" => [
@@ -84,18 +85,17 @@ class AnswerForm extends FormModel
     public function callbackSubmit()
     {
         // Get values from the submitted form
-        $content = $this->form->value("answer");
+        $content = $this->form->value("comment");
         $question = $this->form->value("question");
         $user = $this->form->value("user");
-        $answer = new Answer();
-        $answer->setDb($this->di->get("dbqb"));
-        $answer->content = $content;
-        $answer->question_id = $question;
-        $answer->user = $user;
-        $answer->save();
-        $this->form->addOutput("The answer has been published.");
+        $comment = new Comment();
+        $comment->setDb($this->di->get("dbqb"));
+        $comment->content = $content;
+        $comment->question_id = $question;
+        $comment->user = $user;
+        $comment->save();
+        $this->form->addOutput("The comment has been published.");
         return true;
-        var_dump($answer);
     }
 
     public function callbackSuccess()

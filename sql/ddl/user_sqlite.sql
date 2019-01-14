@@ -15,8 +15,7 @@ CREATE TABLE User (
     "email" TEXT,
     "created" TIMESTAMP,
     "updated" DATETIME,
-    "deleted" DATETIME,
-    "active" DATETIME
+    "activity" INTEGER
 );
 
 --
@@ -36,5 +35,21 @@ CREATE TABLE Svar (
     "id" INTEGER PRIMARY KEY NOT NULL,
     "content" TEXT,
     "question_id" INTEGER,
+    "user" INTEGER
+);
+
+DROP TABLE IF EXISTS Comment;
+CREATE TABLE Comment (
+    "id" INTEGER PRIMARY KEY NOT NULL,
+    "content" TEXT,
+    "question_id" INTEGER,
+    "user" INTEGER
+);
+
+DROP TABLE IF EXISTS AnswerComment;
+CREATE TABLE AnswerComment (
+    "id" INTEGER PRIMARY KEY NOT NULL,
+    "content" TEXT,
+    "answer_id" INTEGER,
     "user" INTEGER
 );

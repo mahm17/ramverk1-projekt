@@ -3,12 +3,12 @@ namespace Anax\Forum;
 
 use Anax\DatabaseActiveRecord\ActiveRecordModel;
 
-class Forum extends ActiveRecordModel
+class AnswerComment extends ActiveRecordModel
 {
     /**
     * @var string $tableName name of the database table.
     */
-    protected $tableName = "Forum";
+    protected $tableName = "AnswerComment";
 
     /**
     * Columns in the table.
@@ -16,7 +16,6 @@ class Forum extends ActiveRecordModel
     * @var integer $id primary key auto incremented.
     */
     public $id;
-    public $title;
     public $content;
-    public $tag;
+    public $answer_id;
 }

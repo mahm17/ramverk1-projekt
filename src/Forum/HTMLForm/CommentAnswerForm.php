@@ -6,11 +6,13 @@ use Anax\HTMLForm\FormModel;
 use Psr\Container\ContainerInterface;
 use Anax\Forum\Answer;
 use Anax\Forum\Forum;
+use Anax\Forum\Comment;
+use Anax\Forum\AnswerComment;
 
 /**
  * Example of FormModel implementation.
  */
-class AnswerForm extends FormModel
+class CommentAnswerForm extends FormModel
 {
     /**
      * Constructor injects with DI container and the id to update.
@@ -21,23 +23,23 @@ class AnswerForm extends FormModel
     public function __construct(ContainerInterface $di, $id)
     {
         parent::__construct($di);
-        $forum = $this->getItemDetails($id);
+        $answer = $this->getItemDetails($id);
         $session = $this->di->get("session");
         $user = $session->get("login");
         $this->form->create(
             [
                 "id" => __CLASS__,
-                "legend" => "Answer post nr: $forum->id",
+                "legend" => "Post a comment",
             ],
             [
-                "answer" => [
+                "comment" => [
                     "type" => "textarea",
-                    "placeholder" => "Write the answer in markdown to change how it looks.",
+                    "placeholder" => "Write the comment in markdown to change how it looks.",
                 ],
 
-                "question" => [
+                "answer" => [
                     "type" => "text",
-                    "value" => $forum->id,
+                    "value" => $answer->id,
                     "readonly" => "readonly",
                 ],
 
@@ -67,10 +69,10 @@ class AnswerForm extends FormModel
      */
     public function getItemDetails($id) : object
     {
-        $forum = new Forum();
-        $forum->setDb($this->di->get("dbqb"));
-        $forum->find("id", $id);
-        return $forum;
+        $answer = new Answer();
+        $answer->setDb($this->di->get("dbqb"));
+        $answer->find("id", $id);
+        return $answer;
     }
 
 
@@ -84,18 +86,17 @@ class AnswerForm extends FormModel
     public function callbackSubmit()
     {
         // Get values from the submitted form
-        $content = $this->form->value("answer");
-        $question = $this->form->value("question");
+        $content = $this->form->value("comment");
+        $answer = $this->form->value("answer");
         $user = $this->form->value("user");
-        $answer = new Answer();
-        $answer->setDb($this->di->get("dbqb"));
-        $answer->content = $content;
-        $answer->question_id = $question;
-        $answer->user = $user;
-        $answer->save();
-        $this->form->addOutput("The answer has been published.");
+        $comment = new AnswerComment();
+        $comment->setDb($this->di->get("dbqb"));
+        $comment->content = $content;
+        $comment->answer_id = $answer;
+        $comment->user = $user;
+        $comment->save();
+        $this->form->addOutput("The comment has been published.");
         return true;
-        var_dump($answer);
     }
 
     public function callbackSuccess()

@@ -77,10 +77,14 @@ class CreatePostForm extends FormModel
         $forum->content = $content;
         $forum->tag = $tag;
         $forum->user = $user;
-        // $user->setPassword($password);
         $forum->save();
 
         $this->form->addOutput("Post was created.");
         return true;
+    }
+
+    public function callbackSuccess()
+    {
+        $this->di->get("response")->redirect("forum")->send();
     }
 }

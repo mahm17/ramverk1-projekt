@@ -43,3 +43,12 @@ legend {
 .questionheader {
     padding-bottom: 0.3em;
 }
+
+.answers,
+.comments {
+    border-bottom: 1px solid #CCC;
+}
+
+.anscomment {
+    margin-left: 1em;
+}
