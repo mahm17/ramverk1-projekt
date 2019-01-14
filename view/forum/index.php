@@ -14,7 +14,13 @@ $filter = $this->di->get("textfilter");
 // var_dump($session);
 ?>
 <h1>Welcome to the forum</h1>
-
+<?php if ($session->has("login")) : ?>
+    <p>
+        <a href="forum/create">Create a new post</a>
+    </p>
+<?php else : ?>
+    <p>You have to be logged in to create a new post</p>
+<?php endif; ?>
 <?php if (!$items) : ?>
     <p>There are no posts to show.!</p>
     <a href="forum/create">Create a new post.</a>
@@ -27,14 +33,8 @@ endif;
         <section>
             <header class="questionheader">
                 <h2><a href="forum/question/<?= $item->id ?>"><?= $item->title ?></a></h2>
+                <p><i>Published: <time datetime="<?= $item->published ?>" pubdate><?= $item->published ?></time></i></p>
             </header>
         </section>
     <?php endforeach; ?>
-    <?php if ($session->has("login")) : ?>
-        <p>
-            <a href="forum/create">Create a new post</a>
-        </p>
-    <?php else : ?>
-        <p>You have to be logged in to create a new post</p>
-    <?php endif; ?>
 </article>

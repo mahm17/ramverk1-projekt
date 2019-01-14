@@ -95,7 +95,6 @@ class AnswerForm extends FormModel
         $answer->save();
         $this->form->addOutput("The answer has been published.");
         return true;
-        var_dump($answer);
     }
 
     public function callbackSuccess()

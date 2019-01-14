@@ -27,7 +27,8 @@ CREATE TABLE Forum (
     "title" TEXT UNIQUE NOT NULL,
     "content" TEXT,
     "tag" TEXT,
-    "user" INTEGER
+    "user" INTEGER,
+    "published" DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 DROP TABLE IF EXISTS Svar;

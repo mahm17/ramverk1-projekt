@@ -19,8 +19,7 @@ class CreatePostForm extends FormModel
     public function __construct(ContainerInterface $di)
     {
         parent::__construct($di);
-        $session = $this->di->get("session");
-        $user = $session->get("login");
+        $user = $this->di->get("session")->get("login");
         $this->form->create(
             [
                 "id" => __CLASS__,
@@ -55,7 +54,20 @@ class CreatePostForm extends FormModel
         );
     }
 
-
+    /**
+     * Get details on item to load form with.
+     *
+     * @param integer $id get details on item with id.
+     *
+     * @return User
+     */
+    public function getItemDetails($id) : object
+    {
+        $user = new \Anax\User\User();
+        $user->setDb($this->di->get("dbqb"));
+        $user->find("id", $id);
+        return $user;
+    }
 
     /**
      * Callback for submit-button which should return true if it could
@@ -66,6 +78,8 @@ class CreatePostForm extends FormModel
      public function callbackSubmit()
     {
         // Get values from the submitted form
+        $login = $this->di->get("session")->get("login");
+        $poster = $this->getItemDetails($login);
         $title = $this->form->value("title");
         $content = $this->form->value("content");
         $tag = $this->form->value("tag");
@@ -77,6 +91,9 @@ class CreatePostForm extends FormModel
         $forum->content = $content;
         $forum->tag = $tag;
         $forum->user = $user;
+        $poster->username = $poster->username;
+        $poster->activity += 1;
+        $poster->save();
         $forum->save();
 
         $this->form->addOutput("Post was created.");

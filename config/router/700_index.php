@@ -5,9 +5,9 @@
 return [
     "routes" => [
         [
-            "info" => "Forum page",
-            "mount" => "login/logout",
-            "handler" => "\Anax\User\UserController",
+            "info" => "Login page",
+            "mount" => "home",
+            "handler" => "\Anax\Home\HomeController",
         ],
     ]
 ];

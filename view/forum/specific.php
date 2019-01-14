@@ -4,7 +4,6 @@ namespace Anax\View;
 /**
 * Forum specific page
 */
-var_dump($content);
 // Show incoming variables and view helper functions
 //echo showEnvironment(get_defined_vars(), get_defined_functions());
 $items = isset($items) ? $items : null;
@@ -25,6 +24,7 @@ endif;
 <article>
     <header>
         <h1><?= $item->title ?></h1>
+        <p><i>Published: <time datetime="<?= $item->published ?>" pubdate><?= $item->published ?></time></i></p>
     </header>
     <?= $filter->doFilter($item->content, "markdown"); ?>
     <p>Tags: <?= $item->tag ?></p>
