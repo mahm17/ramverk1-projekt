@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "14b55ddae48b50e9fcbacc99edf13477",
+    "content-hash": "a30c83d5a6298bf4abb2ded693a508ca",
     "packages": [
         {
             "name": "anax/anax-flat",
@@ -1102,23 +1102,23 @@
         },
         {
             "name": "mahm/projekt",
-            "version": "1.0.0",
+            "version": "2.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mahm17/ramverk1-projekt.git",
-                "reference": "25a2622f2c8c85ea4fbe1d68c8ec4e1af4a10eba"
+                "reference": "e3c3a17c45a9649d1066fc5e696cfdb0ac05cf24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mahm17/ramverk1-projekt/zipball/25a2622f2c8c85ea4fbe1d68c8ec4e1af4a10eba",
-                "reference": "25a2622f2c8c85ea4fbe1d68c8ec4e1af4a10eba",
+                "url": "https://api.github.com/repos/mahm17/ramverk1-projekt/zipball/e3c3a17c45a9649d1066fc5e696cfdb0ac05cf24",
+                "reference": "e3c3a17c45a9649d1066fc5e696cfdb0ac05cf24",
                 "shasum": ""
             },
             "require": {
                 "anax/anax-ramverk1-me": "^1.0.0",
                 "anax/database-active-record": "^2.0",
                 "anax/htmlform": "^2.0",
-                "mahm/weather": "^1.0"
+                "mahm/projekt": "^2.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^7"
@@ -1133,41 +1133,8 @@
             "license": [
                 "MIT"
             ],
-            "description": "A me page for the ramverk1 course.",
-            "time": "2019-01-11T21:31:06+00:00"
-        },
-        {
-            "name": "mahm/weather",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mahm17/ramverk1-module.git",
-                "reference": "c5e784f620c61c62641f5e753280300dcbe5b85a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mahm17/ramverk1-module/zipball/c5e784f620c61c62641f5e753280300dcbe5b85a",
-                "reference": "c5e784f620c61c62641f5e753280300dcbe5b85a",
-                "shasum": ""
-            },
-            "require": {
-                "anax/anax-ramverk1-me": "^1.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Anax\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A me page for the ramverk1 course.",
-            "time": "2018-12-06T10:32:18+00:00"
+            "description": "Project for ramverk1 course.",
+            "time": "2019-01-14T20:16:09+00:00"
         },
         {
             "name": "michelf/php-markdown",
@@ -1653,6 +1620,39 @@
                 "instantiate"
             ],
             "time": "2017-07-22T11:58:36+00:00"
+        },
+        {
+            "name": "mahm/weather",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mahm17/ramverk1-module.git",
+                "reference": "c5e784f620c61c62641f5e753280300dcbe5b85a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mahm17/ramverk1-module/zipball/c5e784f620c61c62641f5e753280300dcbe5b85a",
+                "reference": "c5e784f620c61c62641f5e753280300dcbe5b85a",
+                "shasum": ""
+            },
+            "require": {
+                "anax/anax-ramverk1-me": "^1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Anax\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A me page for the ramverk1 course.",
+            "time": "2018-12-06T10:32:18+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -3011,7 +3011,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "beta",
+    "minimum-stability": "dev",
     "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
