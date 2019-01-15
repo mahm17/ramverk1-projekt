@@ -35,7 +35,7 @@ DROP TABLE IF EXISTS Svar;
 CREATE TABLE Svar (
     "id" INTEGER PRIMARY KEY NOT NULL,
     "content" TEXT,
-    "question_id" INTEGER,
+    "questionId" INTEGER,
     "user" INTEGER
 );
 
@@ -43,7 +43,7 @@ DROP TABLE IF EXISTS Comment;
 CREATE TABLE Comment (
     "id" INTEGER PRIMARY KEY NOT NULL,
     "content" TEXT,
-    "question_id" INTEGER,
+    "questionId" INTEGER,
     "user" INTEGER
 );
 
@@ -51,6 +51,6 @@ DROP TABLE IF EXISTS AnswerComment;
 CREATE TABLE AnswerComment (
     "id" INTEGER PRIMARY KEY NOT NULL,
     "content" TEXT,
-    "answer_id" INTEGER,
+    "answerId" INTEGER,
     "user" INTEGER
 );

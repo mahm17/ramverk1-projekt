@@ -1,6 +1,7 @@
 <?php
 
 namespace Anax\View;
+
 /**
 * Profile specific page
 */

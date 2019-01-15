@@ -90,7 +90,7 @@ class AnswerForm extends FormModel
         $answer = new Answer();
         $answer->setDb($this->di->get("dbqb"));
         $answer->content = $content;
-        $answer->question_id = $question;
+        $answer->questionId = $question;
         $answer->user = $user;
         $answer->save();
         $this->form->addOutput("The answer has been published.");

@@ -13,16 +13,18 @@ class HomeController implements ContainerInjectableInterface
     public function indexAction()
     {
         $title = "Home page";
-        $forum = new Forum();
-        $user = new \Anax\User\User();
-        $forum->setDb($this->di->get("dbqb"));
-        $user->setDb($this->di->get("dbqb"));
+        $db = $this->di->get("db");
+        $db->connect();
+        $sqlPosts = "SELECT * FROM Forum ORDER BY published DESC;";
+        $sqlUsers = "SELECT * FROM User ORDER BY activity DESC;";
+        $resOne = $db->executeFetchAll($sqlPosts);
+        $resTwo = $db->executeFetchAll($sqlUsers);
 
         $page = $this->di->get("page");
 
         $page->add("home/index", [
-            "items" => $forum->findAll(),
-            "users" => $user->findAll(),
+            "items" => $resOne,
+            "users" => $resTwo,
         ]);
 
         return $page->render([

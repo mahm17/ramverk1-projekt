@@ -1,6 +1,7 @@
 <?php
 
 namespace Anax\View;
+
 /**
 * Forum specific page
 */
@@ -55,7 +56,7 @@ endif;
             <?= $filter->doFilter($answer->content, "markdown"); ?>
             <h3>Comments: </h3>
             <?php foreach ($anscomments as $anscomment) : ?>
-                <?php if ($answer->id == $anscomment->answer_id) : ?>
+                <?php if ($answer->id == $anscomment->answerId) : ?>
                     <div class="anscomment">
                         <?= $filter->doFilter($anscomment->content, "markdown"); ?>
                     </div>

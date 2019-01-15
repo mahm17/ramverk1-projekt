@@ -17,5 +17,5 @@ class Answer extends ActiveRecordModel
     */
     public $id;
     public $content;
-    public $question_id;
+    public $questionId;
 }

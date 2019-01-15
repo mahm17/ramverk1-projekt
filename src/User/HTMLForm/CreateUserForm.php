@@ -61,7 +61,7 @@ class CreateUserForm extends FormModel
      *
      * @return boolean true if okey, false if something went wrong.
      */
-     public function callbackSubmit()
+    public function callbackSubmit()
     {
         // Get values from the submitted form
         $username      = $this->form->value("username");
@@ -70,19 +70,11 @@ class CreateUserForm extends FormModel
         $email = $this->form->value("email");
 
         // Check password matches
-        if ($password !== $passwordAgain ) {
+        if ($password !== $passwordAgain) {
             $this->form->rememberValues();
             $this->form->addOutput("Password did not match.");
             return false;
         }
-
-        // Save to database
-        // $db = $this->di->get("dbqb");
-        // $password = password_hash($password, PASSWORD_DEFAULT);
-        // $db->connect()
-        //    ->insert("User", ["acronym", "password"])
-        //    ->execute([$acronym])
-        //    ->fetch();
         $user = new User();
         $user->setDb($this->di->get("dbqb"));
         $user->username = $username;

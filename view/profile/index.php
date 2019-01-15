@@ -1,6 +1,7 @@
 <?php
 
 namespace Anax\View;
+
 /**
 * Profile specific page
 */
@@ -39,7 +40,7 @@ $grav_url = "https://www.gravatar.com/avatar/";
 <?php else : ?>
     <?php foreach ($answers as $answer) : ?>
         <p>
-            <a href="forum/question/<?= $answer->question_id ?>"><?= $answer->content ?></a>
+            <a href="forum/question/<?= $answer->questionId ?>"><?= $answer->content ?></a>
         </p>
     <?php endforeach; ?>
 <?php endif; ?>
@@ -49,7 +50,7 @@ $grav_url = "https://www.gravatar.com/avatar/";
 <?php else : ?>
     <?php foreach ($comments as $comment) : ?>
         <p>
-            <a href="forum/question/<?= $answer->question_id ?>"><?= $comment->content ?></a>
+            <a href="forum/question/<?= $answer->questionId ?>"><?= $comment->content ?></a>
         </p>
     <?php endforeach; ?>
 <?php endif; ?>
@@ -59,7 +60,7 @@ $grav_url = "https://www.gravatar.com/avatar/";
 <?php else : ?>
     <?php foreach ($anscomments as $anscomment) : ?>
         <p>
-            <a href="forum/question/<?= $answer->question_id ?>"><?= $anscomment->content ?></a>
+            <a href="forum/question/<?= $answer->questionId ?>"><?= $anscomment->content ?></a>
         </p>
     <?php endforeach; ?>
 <?php endif; ?>

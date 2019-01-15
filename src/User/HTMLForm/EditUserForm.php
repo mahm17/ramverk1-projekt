@@ -86,7 +86,7 @@ class EditUserForm extends FormModel
      *
      * @return boolean true if okey, false if something went wrong.
      */
-     public function callbackSubmit()
+    public function callbackSubmit()
     {
         // Get values from the submitted form
         $user = new User();
@@ -97,19 +97,17 @@ class EditUserForm extends FormModel
         $email = $this->form->value("email");
 
         // Check password matches
-        if ($password !== $passwordAgain ) {
+        if ($password !== $passwordAgain) {
             $this->form->rememberValues();
             $this->form->addOutput("Password did not match.");
             return false;
         }
-
         $user->find("id", $this->form->value("id"));
-        $user->username  = $this->form->value("username");
+        $user->username  = $username;
         $user->password = $this->form->value("password");
-        $user->email = $this->form->value("email");
+        $user->email = $email;
         $user->save();
         $this->form->addOutput("User was updated.");
         return true;
-
     }
 }

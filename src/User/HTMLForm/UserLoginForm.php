@@ -19,13 +19,12 @@ class UserLoginForm extends FormModel
     public function __construct(ContainerInterface $di)
     {
         parent::__construct($di);
-        $session = $this->di->get("session");
             $this->form->create(
-            [
-                "id" => __CLASS__,
-                "legend" => "Login"
-            ],
-            [
+                [
+                    "id" => __CLASS__,
+                    "legend" => "Login"
+                ],
+                [
                 "username" => [
                     "type"        => "text",
                     //"description" => "Here you can place a description.",
@@ -42,8 +41,8 @@ class UserLoginForm extends FormModel
                     "value" => "Login",
                     "callback" => [$this, "callbackSubmit"]
                 ],
-            ]
-        );
+                ]
+            );
     }
 
 
@@ -83,9 +82,9 @@ class UserLoginForm extends FormModel
         $session->set("login", $user->id);
 
         if (!$res) {
-           $this->form->rememberValues();
-           $this->form->addOutput("User or password did not match.");
-           return false;
+            $this->form->rememberValues();
+            $this->form->addOutput("User or password did not match.");
+            return false;
         }
         $this->form->addOutput("User " . $user->username . " logged in.");
         return true;

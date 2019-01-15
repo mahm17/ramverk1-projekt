@@ -75,7 +75,7 @@ class CreatePostForm extends FormModel
      *
      * @return boolean true if okey, false if something went wrong.
      */
-     public function callbackSubmit()
+    public function callbackSubmit()
     {
         // Get values from the submitted form
         $login = $this->di->get("session")->get("login");

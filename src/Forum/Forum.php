@@ -20,5 +20,4 @@ class Forum extends ActiveRecordModel
     public $title;
     public $content;
     public $tag;
-
 }

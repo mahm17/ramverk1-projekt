@@ -1,6 +1,7 @@
 <?php
 
 namespace Anax\View;
+
 /**
 * Profile specific page
 */
@@ -31,10 +32,10 @@ $grav_url = "https://www.gravatar.com/avatar/";
 <h3>Answers posted: </h3>
 <?php if (empty($answers)) : ?>
     <p>This user hasn't posted any answers yet.</p>
-<?php else: ?>
+<?php else : ?>
     <?php foreach ($answers as $answer) : ?>
         <p>
-            <a href="../../forum/question/<?= $answer->question_id ?>"><?= $answer->content ?></a>
+            <a href="../../forum/question/<?= $answer->questionId ?>"><?= $answer->content ?></a>
         </p>
     <?php endforeach; ?>
 <?php endif; ?>
@@ -45,13 +46,13 @@ $grav_url = "https://www.gravatar.com/avatar/";
     <h3>Comments you have posted: </h3>
     <?php foreach ($comments as $comment) : ?>
         <p>
-            <a href="../../forum/question/<?= $answer->question_id ?>"><?= $comment->content ?></a>
+            <a href="../../forum/question/<?= $answer->questionId ?>"><?= $comment->content ?></a>
         </p>
     <?php endforeach; ?>
 <?php endif; ?>
 <h3>Comments on answers you have posted: </h3>
 <?php foreach ($anscomments as $anscomment) : ?>
     <p>
-        <a href="../../forum/question/<?= $answer->question_id ?>"><?= $anscomment->content ?></a>
+        <a href="../../forum/question/<?= $answer->questionId ?>"><?= $anscomment->content ?></a>
     </p>
 <?php endforeach; ?>

@@ -1,6 +1,7 @@
 <?php
 
 namespace Anax\View;
+
 $size = 90;
 $grav_url = "https://www.gravatar.com/avatar/";
 $tags = [];
@@ -29,12 +30,19 @@ $counter = 1;
         <?php endforeach; ?>
         <?php foreach ($tags as $tag) : ?>
             <?php $exploded = explode(", ", $tag); ?>
-            <?php if (!in_array($tag, $exploded)) : ?>
+            <?php if (in_array($tag, $exploded)) : ?>
                 <?php foreach ($exploded as $piece) : ?>
                     <section>
-                        <h3><?= $counter ?>: <a href="tags/tag/<?= $piece ?>"><?= $piece ?></a><h3>
+                        <h3><?= $counter ?>: <a href="tags/tag/<?= $piece ?>"><?= $piece ?></a></h3>
                     </section>
-                    <?php $counter++; ?>
+                    <?php $counter++ ?>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <?php foreach ($exploded as $piece) : ?>
+                    <section>
+                        <?= $counter ?>: <a href="tags/tag/<?= $piece ?>"><?= $piece ?></a>
+                    </section>
+                    <?php $counter++ ?>
                 <?php endforeach; ?>
             <?php endif; ?>
         <?php endforeach; ?>
@@ -48,4 +56,3 @@ $counter = 1;
         <?php endforeach; ?>
     </div>
 </div>
-<?php $counts = array_count_values($tags); ?>

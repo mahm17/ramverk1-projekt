@@ -91,7 +91,7 @@ class CommentForm extends FormModel
         $comment = new Comment();
         $comment->setDb($this->di->get("dbqb"));
         $comment->content = $content;
-        $comment->question_id = $question;
+        $comment->questionId = $question;
         $comment->user = $user;
         $comment->save();
         $this->form->addOutput("The comment has been published.");

@@ -18,6 +18,7 @@ class ForumController implements ContainerInjectableInterface
         $title = "The forum";
         $forum = new Forum();
         $forum->setDb($this->di->get("dbqb"));
+        
 
         $page = $this->di->get("page");
 
@@ -63,9 +64,9 @@ class ForumController implements ContainerInjectableInterface
 
         $page->add("forum/specific", [
             "content" => $forum->findAllWhere("id = ?", $id),
-            "answers" => $answer->findAllWhere("question_id = ?", $id),
+            "answers" => $answer->findAllWhere("questionId = ?", $id),
             "users" => $user->findAllWhere("id = ?", $login),
-            "comments" => $comment->findAllWhere("question_id = ?", $id),
+            "comments" => $comment->findAllWhere("questionId = ?", $id),
             "anscomments" => $anscomment->findAll(),
         ]);
 

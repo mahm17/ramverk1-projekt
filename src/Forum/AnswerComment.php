@@ -17,5 +17,5 @@ class AnswerComment extends ActiveRecordModel
     */
     public $id;
     public $content;
-    public $answer_id;
+    public $answerId;
 }
