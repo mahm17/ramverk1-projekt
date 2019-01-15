@@ -113,8 +113,6 @@ class ComposerStaticInitf407e1e2036173ecb088ec9d5d863809
             19 => __DIR__ . '/..' . '/anax/textfilter/src',
             20 => __DIR__ . '/..' . '/anax/url/src',
             21 => __DIR__ . '/..' . '/anax/view/src',
-            22 => __DIR__ . '/..' . '/mahm/projekt/src',
-            23 => __DIR__ . '/..' . '/mahm/weather/src',
         ),
     );
 
