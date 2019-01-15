@@ -5,30 +5,24 @@
 [![Build Status](https://scrutinizer-ci.com/g/mahm17/ramverk1-projekt/badges/build.png?b=master)](https://scrutinizer-ci.com/g/mahm17/ramverk1-projekt/build-status/master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/mahm17/ramverk1-projekt/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 
-Install the module
+Copy the repo to your own folder
 ----------------
 
 ```
-composer require mahm/projekt
+git clone git@github.com:mahm17/ramverk1-projekt.git your_folder
 ```
 
-Copy the config files
+Create the database file
 --------
 
 ```
-rsync -av vendor/mahm/projekt/config ./
+mkdir data
+touch data/db.sqlite
 ```
 
-Copy the view files
---------------------
+Create the tables for the database
+----------------------
 
 ```
-rsync -av vendor/mahm/projet/view ./
-```
-
-Copy the src files
---------------------
-
-```
-rsync -av vendor/mahm/projekt/src ./
+sqlite3 data/db.sqlite < sql/ddl/user_sqlite.sql
 ```
