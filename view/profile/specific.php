@@ -11,6 +11,7 @@ namespace Anax\View;
 $items = isset($items) ? $items : null;
 $size = 90;
 $grav_url = "https://www.gravatar.com/avatar/";
+$filter = $this->di->get("textfilter");
 // $session = $this->di->get("session");
 
 ?>
@@ -25,7 +26,7 @@ $grav_url = "https://www.gravatar.com/avatar/";
 <?php else : ?>
     <?php foreach ($questions as $question) : ?>
         <p>
-            <a href="../../forum/question/<?= $question->id ?>"><?= $question->title ?></a>
+            <a href="../../forum/question/<?= $question->id ?>"><?= $filter->doFilter($question->title, "markdown") ?></a>
         </p>
     <?php endforeach; ?>
 <?php endif; ?>
@@ -35,7 +36,7 @@ $grav_url = "https://www.gravatar.com/avatar/";
 <?php else : ?>
     <?php foreach ($answers as $answer) : ?>
         <p>
-            <a href="../../forum/question/<?= $answer->questionId ?>"><?= $answer->content ?></a>
+            <a href="../../forum/question/<?= $answer->questionId ?>"><?= $filter->doFilter($answer->content, "markdown") ?></a>
         </p>
     <?php endforeach; ?>
 <?php endif; ?>
@@ -46,13 +47,13 @@ $grav_url = "https://www.gravatar.com/avatar/";
     <h3>Comments you have posted: </h3>
     <?php foreach ($comments as $comment) : ?>
         <p>
-            <a href="../../forum/question/<?= $answer->questionId ?>"><?= $comment->content ?></a>
+            <a href="../../forum/question/<?= $answer->questionId ?>"><?= $filter->doFilter($comment->content, "markdown") ?></a>
         </p>
     <?php endforeach; ?>
 <?php endif; ?>
 <h3>Comments on answers you have posted: </h3>
 <?php foreach ($anscomments as $anscomment) : ?>
     <p>
-        <a href="../../forum/question/<?= $answer->questionId ?>"><?= $anscomment->content ?></a>
+        <a href="../../forum/question/<?= $answer->questionId ?>"><?= $filter->doFilter($anscomment->content, "markdown") ?></a>
     </p>
 <?php endforeach; ?>
