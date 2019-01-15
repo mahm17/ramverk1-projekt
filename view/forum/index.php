@@ -12,7 +12,6 @@ $items = isset($items) ? $items : null;
 $session = $this->di->get("session");
 $filter = $this->di->get("textfilter");
 $tags = [];
-var_dump($res);
 // var_dump($session);
 ?>
 <h1>Welcome to the forum</h1>
@@ -25,7 +24,7 @@ var_dump($res);
 <?php endif; ?>
 <?php if (!$items) : ?>
     <p>There are no posts to show!</p>
-    <?php endif; ?>
+<?php endif; ?>
 <article>
     <?php foreach ($items as $item) : ?>
         <?php array_push($tags, $item->tag) ?>

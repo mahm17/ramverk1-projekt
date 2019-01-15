@@ -2,4 +2,3 @@
 /build
 /vendor
 memory::
-composer.lock

@@ -18,6 +18,7 @@ $counter = 1;
 <div id="container">
     <div id="posts">
         <h2>The latest forum posts:</h2>
+        <?php array_splice($items, 1, -2); ?>
         <?php foreach ($items as $item) : ?>
             <h3><a href="forum/question/<?= $item->id ?>"><?= $item->title ?></a></h3>
             <p><i>Published: <time datetime="<?= $item->published ?>" pubdate><?= $item->published ?></time></i></p>

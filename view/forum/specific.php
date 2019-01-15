@@ -21,7 +21,6 @@ endif;
 ?>
 
 <?php foreach ($content as $item) : ?>
-
 <article>
     <header>
         <h1><?= $item->title ?></h1>
