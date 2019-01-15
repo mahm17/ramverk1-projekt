@@ -4,6 +4,8 @@
 [![Build Status](https://scrutinizer-ci.com/g/mahm17/ramverk1-projekt/badges/build.png?b=master)](https://scrutinizer-ci.com/g/mahm17/ramverk1-projekt/build-status/master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/mahm17/ramverk1-projekt/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 
+This is a project for the course ramverk1 at Blekinge Institute of Technology.
+
 Copy the repo to your own folder
 ----------------
 
