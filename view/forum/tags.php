@@ -12,6 +12,7 @@ $items = isset($items) ? $items : null;
 // var_dump($items);
 // $session = $this->di->get("session");
 $tags = [];
+$counter = 1;
 ?>
 
 <?php if (!$items) : ?>
@@ -24,6 +25,7 @@ endif;
     <header>
         <h1>All tags</h1>
     </header>
+    <p>Here you can see all tags used in the articles.</p>
     <?php foreach ($items as $item) : ?>
         <?php array_push($tags, $item->tag); ?>
     <?php endforeach; ?>
@@ -32,8 +34,9 @@ endif;
         <?php if (!in_array($tag, $exploded)) : ?>
             <?php foreach ($exploded as $piece) : ?>
                 <section>
-                    <a href="tags/tag/<?= $piece ?>"><?= $piece ?></a>
+                    <?= $counter ?>: <a href="tags/tag/<?= $piece ?>"><?= $piece ?></a>
                 </section>
+                <?php $counter++ ?>
             <?php endforeach; ?>
         <?php endif; ?>
     <?php endforeach; ?>

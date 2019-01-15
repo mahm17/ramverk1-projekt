@@ -53,12 +53,23 @@ legend {
     margin-left: 1em;
 }
 
+#container {
+    width: 100%;
+    text-align: center;
+}
+
 #posts {
     float: left;
-    width: 40%;
+    width: 30%;
 }
 
 #users {
     float: right;
-    width: 40%;
+    width: 30%;
+}
+
+#tags {
+    margin: 0 auto;
+    display: inline-block;
+    width: 30%
 }

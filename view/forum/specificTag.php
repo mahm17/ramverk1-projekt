@@ -2,7 +2,7 @@
 
 namespace Anax\View;
 $items = isset($items) ? $items : null;
-var_dump($items);
+// var_dump($items);
 ?>
 
 <!DOCTYPE html>

@@ -62,5 +62,5 @@ VALUES
 
 SELECT * FROM Forum;
 SELECT * FROM Svar WHERE svar_id = 1;
-SELECT * FROM Forum WHERE tag IN ('fråga');
+SELECT * FROM Forum WHERE tag = 'fråga';
 

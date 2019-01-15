@@ -40,6 +40,3 @@ endif;
         </section>
     <?php endforeach; ?>
 </article>
-
-<?php var_dump(array_count_values($tags));; ?>
-<?php var_dump($tags); ?>
