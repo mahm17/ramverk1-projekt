@@ -1,3 +1,3 @@
-#### Footer col 1
+#### Everything
 
-Detta är den vänstra footern, kanske kommer det finnas bra saker här i framtiden.
+Hope you will enjoy your stay here!

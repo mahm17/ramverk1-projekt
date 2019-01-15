@@ -6,6 +6,7 @@ $size = 90;
 $grav_url = "https://www.gravatar.com/avatar/";
 $tags = [];
 $counter = 1;
+// $combined = array_combine($tags, $amount);
 
 ?>
 <h1>Welcome to Everything about Slopestyle!</h1>
@@ -18,7 +19,7 @@ $counter = 1;
 <div id="container">
     <div id="posts">
         <h2>The latest forum posts:</h2>
-        <?php array_splice($items, 1, -2); ?>
+        <?php array_splice($items, -1, 2); ?>
         <?php foreach ($items as $item) : ?>
             <h3><a href="forum/question/<?= $item->id ?>"><?= $item->title ?></a></h3>
             <p><i>Published: <time datetime="<?= $item->published ?>" pubdate><?= $item->published ?></time></i></p>
@@ -29,6 +30,7 @@ $counter = 1;
         <?php foreach ($items as $item) : ?>
             <?php array_push($tags, $item->tag); ?>
         <?php endforeach; ?>
+        <?php $amount = array_count_values($tags) ?>
         <?php foreach ($tags as $tag) : ?>
             <?php $exploded = explode(", ", $tag); ?>
             <?php if (in_array($tag, $exploded)) : ?>
@@ -41,7 +43,7 @@ $counter = 1;
             <?php else : ?>
                 <?php foreach ($exploded as $piece) : ?>
                     <section>
-                        <?= $counter ?>: <a href="tags/tag/<?= $piece ?>"><?= $piece ?></a>
+                        <h3><?= $counter ?>: <a href="tags/tag/<?= $piece ?>"><?= $piece ?></a></h3>
                     </section>
                     <?php $counter++ ?>
                 <?php endforeach; ?>

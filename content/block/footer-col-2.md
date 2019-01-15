@@ -1,3 +1,3 @@
-#### Footer col 2
+#### About
 
-Detta är den mellersta footern, kanske kommer det finnas bra saker här i framtiden.
+Contact us at slopestyle@gmail.com

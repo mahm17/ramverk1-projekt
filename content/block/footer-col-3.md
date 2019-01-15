@@ -1,3 +1,3 @@
-#### Footer col 3
+#### Slopestyle
 
-Detta är den högra footern, kanske kommer det finnas bra saker här i framtiden.
+We are the best at what we do.
